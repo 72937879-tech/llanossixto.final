@@ -1,0 +1,332 @@
+/* ==========================================================
+   Facultad de Ciencias Sociales · Programa Raíces
+   Hoja de estilos MOBILE FIRST (base = móvil; min-width sube)
+   Se carga DESPUÉS de Bootstrap para personalizarlo con
+   variables CSS (--bs-*) y clases propias con prefijo "rz-".
+   ========================================================== */
+
+/* ---------- 1. Fuentes locales (carga rápida, sin servicios externos) ---------- */
+@font-face {
+  font-family: "Lora";
+  src: url("../assets/fonts/Lora-Variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lora";
+  src: url("../assets/fonts/Lora-Italic-Variable.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ---------- 2. Tokens de diseño ---------- */
+:root {
+  --rz-ink: #1b2540;        /* azul tinta: texto y fondos oscuros   */
+  --rz-ink-soft: #2b3860;
+  --rz-paper: #fbf7f0;      /* papel cálido: fondo principal        */
+  --rz-paper-2: #f3ebdd;
+  --rz-clay: #a83a22;       /* terracota: acción principal          */
+  --rz-clay-dark: #86291a;
+  --rz-sun: #f2b84b;        /* amarillo sol: acentos sobre oscuro   */
+  --rz-sage: #2a6354;       /* verde salvia: éxito / secundario     */
+  --rz-sky: #cfe0ec;
+  --rz-muted: #475069;      /* texto secundario (contraste 7:1)     */
+  --rz-line: #dccfb9;
+  --rz-radius: 1.25rem;
+  --rz-shadow: 0 .75rem 2rem rgba(27, 37, 64, .12);
+  --rz-font-head: "Lora", Georgia, "Times New Roman", serif;
+  --rz-font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --bs-body-font-family: var(--rz-font-body);
+  --bs-body-color: var(--rz-ink);
+  --bs-body-bg: var(--rz-paper);
+  --bs-primary: var(--rz-clay);
+  --bs-primary-rgb: 168, 58, 34;
+  --bs-link-color: var(--rz-clay);
+  --bs-link-color-rgb: 168, 58, 34;
+  --bs-link-hover-color: var(--rz-clay-dark);
+  --bs-link-hover-color-rgb: 134, 41, 26;
+  --bs-border-radius: .75rem;
+  --bs-border-radius-lg: var(--rz-radius);
+  --bs-focus-ring-color: rgba(242, 184, 75, .6);
+}
+
+/* Modo alto contraste (botón de la barra de accesibilidad) */
+html[data-contraste="alto"] {
+  --rz-ink: #000;
+  --rz-ink-soft: #000;
+  --rz-paper: #fff;
+  --rz-paper-2: #fff;
+  --rz-clay: #7a1700;
+  --rz-clay-dark: #5a1000;
+  --rz-muted: #000;
+  --rz-line: #000;
+  --rz-sage: #064d2d;
+  --bs-body-color: #000;
+  --bs-body-bg: #fff;
+}
+html[data-contraste="alto"] .rz-hero,
+html[data-contraste="alto"] .rz-dark,
+html[data-contraste="alto"] .rz-footer { background: #000 !important; }
+html[data-contraste="alto"] .rz-card,
+html[data-contraste="alto"] .accordion-item,
+html[data-contraste="alto"] .form-control,
+html[data-contraste="alto"] .form-select { border-color: #000 !important; border-width: 2px !important; }
+
+/* ---------- 3. Base ---------- */
+html { scroll-behavior: smooth; font-size: 100%; }
+body {
+  font-size: 1.0625rem;      /* 17 px: lectura cómoda en móvil */
+  line-height: 1.65;
+  background: var(--rz-paper);
+  color: var(--rz-ink);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4, .h1, .h2, .h3, .h4, .h5, .rz-display {
+  font-family: var(--rz-font-head);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  color: inherit;
+}
+h1 { font-size: clamp(2.1rem, 7.5vw, 4rem); }
+h2 { font-size: clamp(1.6rem, 5vw, 2.5rem); }
+h3, .h3 { font-size: 1.3rem; }
+.h4 { font-size: 1.4rem; } .h5 { font-size: 1.15rem; }
+.rz-card h2, .rz-card h3 { color: var(--rz-ink); }
+p { max-width: 68ch; }
+address a, .rz-footer a, .rz-card a { overflow-wrap: anywhere; }
+a { text-underline-offset: .2em; }
+img, svg { max-width: 100%; height: auto; }
+
+/* Foco visible doble (se ve sobre fondos claros y oscuros) – WCAG 2.4.7 */
+:focus-visible {
+  outline: 3px solid var(--rz-ink) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 6px var(--rz-sun) !important;
+  border-radius: .35rem;
+}
+
+/* Enlace "saltar al contenido" */
+.rz-skip {
+  position: absolute; left: .75rem; top: -4rem; z-index: 2000;
+  background: var(--rz-sun); color: var(--rz-ink);
+  padding: .75rem 1.25rem; border-radius: .75rem; font-weight: 700;
+  text-decoration: none; transition: top .2s;
+}
+.rz-skip:focus { top: .75rem; }
+
+.rz-eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--rz-clay);
+}
+.rz-eyebrow::before { content: ""; width: 1.75rem; height: 3px; background: currentColor; border-radius: 3px; }
+.rz-dark .rz-eyebrow, .rz-hero .rz-eyebrow { color: var(--rz-sun); }
+
+.rz-section { padding-block: 3.5rem; }
+.rz-lead { font-size: 1.2rem; color: var(--rz-muted); }
+.rz-dark .rz-lead, .rz-hero .rz-lead { color: #e7e2f0; }
+
+/* ---------- 4. Barra de accesibilidad + navegación ---------- */
+.rz-toolbar { background: var(--rz-ink); color: #fff; font-size: .875rem; }
+.rz-toolbar .btn {
+  --bs-btn-padding-y: .25rem; --bs-btn-padding-x: .7rem; --bs-btn-font-size: .85rem;
+  --bs-btn-color: #fff; --bs-btn-border-color: rgba(255,255,255,.55);
+  --bs-btn-hover-bg: #fff; --bs-btn-hover-color: var(--rz-ink);
+  --bs-btn-active-bg: var(--rz-sun); --bs-btn-active-color: var(--rz-ink);
+  min-height: 2.25rem; min-width: 2.75rem;
+}
+.rz-toolbar .btn[aria-pressed="true"] { background: var(--rz-sun); color: var(--rz-ink); border-color: var(--rz-sun); font-weight: 700; }
+
+.rz-nav {
+  background: rgba(251, 247, 240, .96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rz-line);
+}
+.rz-brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--rz-ink); }
+.rz-brand img { width: 2.75rem; height: 2.75rem; }
+.rz-brand strong { display: block; font-family: var(--rz-font-head); font-size: 1.05rem; line-height: 1.1; }
+.rz-brand small { color: var(--rz-muted); font-size: .75rem; letter-spacing: .04em; }
+.rz-nav .nav-link {
+  color: var(--rz-ink); font-weight: 600; padding: .75rem 1rem; border-radius: 999px; min-height: 2.75rem;
+}
+.rz-nav .nav-link:hover { background: var(--rz-paper-2); color: var(--rz-clay-dark); }
+.rz-nav .nav-link[aria-current="page"] { background: var(--rz-ink); color: #fff; }
+.rz-nav .navbar-toggler { border: 2px solid var(--rz-ink); min-width: 2.75rem; min-height: 2.75rem; }
+
+/* ---------- 5. Botones ---------- */
+.btn { font-weight: 700; border-radius: 999px; padding: .75rem 1.5rem; min-height: 2.9rem; transition: transform .18s ease, box-shadow .18s ease, background-color .18s; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn-clay { --bs-btn-color: #fff; --bs-btn-bg: var(--rz-clay); --bs-btn-border-color: var(--rz-clay);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--rz-clay-dark); --bs-btn-hover-border-color: var(--rz-clay-dark);
+  --bs-btn-active-bg: var(--rz-clay-dark); --bs-btn-active-border-color: var(--rz-clay-dark);
+  --bs-btn-disabled-bg: var(--rz-clay); --bs-btn-disabled-border-color: var(--rz-clay);
+  box-shadow: 0 .5rem 1.25rem rgba(168, 58, 34, .3); }
+.btn-sun { --bs-btn-color: var(--rz-ink); --bs-btn-bg: var(--rz-sun); --bs-btn-border-color: var(--rz-sun);
+  --bs-btn-hover-color: var(--rz-ink); --bs-btn-hover-bg: #ffd27d; --bs-btn-hover-border-color: #ffd27d; }
+.btn-line { --bs-btn-color: var(--rz-ink); --bs-btn-border-color: var(--rz-ink); --bs-btn-border-width: 2px;
+  --bs-btn-hover-bg: var(--rz-ink); --bs-btn-hover-color: #fff; --bs-btn-hover-border-color: var(--rz-ink); }
+.rz-hero .btn-line, .rz-dark .btn-line { --bs-btn-color: #fff; --bs-btn-border-color: #fff; --bs-btn-hover-bg: #fff; --bs-btn-hover-color: var(--rz-ink); --bs-btn-hover-border-color: #fff; }
+
+/* ---------- 6. Hero ---------- */
+.rz-hero {
+  position: relative; overflow: hidden; color: #fff;
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgba(242,184,75,.22), transparent 60%),
+    radial-gradient(40rem 25rem at -10% 110%, rgba(168,58,34,.35), transparent 60%),
+    var(--rz-ink);
+  padding-block: 3rem 0;
+}
+.rz-hero h1 em { font-style: italic; color: var(--rz-sun); }
+.rz-hero__art { display:block; width: 100%; max-width: 28rem; margin-inline: auto; filter: drop-shadow(0 1.5rem 2rem rgba(0,0,0,.35)); animation: rz-float 9s ease-in-out infinite; }
+@keyframes rz-float { 50% { transform: translateY(-10px) rotate(-1deg); } }
+.rz-chip { display: inline-block; padding: .35rem .9rem; border: 1.5px solid rgba(255,255,255,.55); border-radius: 999px; font-size: .85rem; font-weight: 600; }
+
+.rz-stats { background: var(--rz-sun); color: var(--rz-ink); }
+.rz-stats dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1rem; padding-block: 1.75rem; }
+.rz-stats dt { font-family: var(--rz-font-head); font-size: 2rem; font-weight: 700; line-height: 1; order: 1; }
+.rz-stats dd { margin: .25rem 0 0; font-size: .9rem; font-weight: 600; order: 2; }
+.rz-stats .item { display: flex; flex-direction: column; }
+
+/* ---------- 7. Tarjetas ---------- */
+.rz-card {
+  height: 100%; background: #fff; border: 1.5px solid var(--rz-line); border-radius: var(--rz-radius);
+  padding: 1.5rem; position: relative; transition: transform .22s ease, box-shadow .22s ease, border-color .22s;
+}
+.rz-card:hover { transform: translateY(-6px); box-shadow: var(--rz-shadow); border-color: var(--rz-clay); }
+.rz-card .rz-icon {
+  width: 3.4rem; height: 3.4rem; display: grid; place-items: center; border-radius: 1rem 1rem 1rem .25rem;
+  background: var(--rz-ink); color: var(--rz-sun); margin-bottom: 1rem;
+}
+.rz-card:nth-child(even) .rz-icon, .col:nth-child(even) .rz-card .rz-icon { background: var(--rz-clay); color: #fff; }
+.rz-card .rz-num { position: absolute; top: 1rem; right: 1.25rem; font-family: var(--rz-font-head); font-size: 2.2rem; color: var(--rz-line); font-weight: 700; }
+.rz-card p { color: var(--rz-muted); margin-bottom: 0; }
+
+.rz-dark { background: var(--rz-ink); color: #fff; }
+.rz-paper-2 { background: var(--rz-paper-2); }
+
+/* ---------- 8. Carrusel ---------- */
+.rz-carousel { border-radius: var(--rz-radius); overflow: hidden; box-shadow: var(--rz-shadow); border: 3px solid #fff; background: var(--rz-ink); }
+.rz-carousel img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.rz-carousel .carousel-caption { position: static; text-align: left; background: var(--rz-ink); color: #fff; padding: 1.1rem 1.25rem 3.25rem; }
+.rz-carousel .carousel-caption h3 { font-size: 1.25rem; color: var(--rz-sun); margin: 0 0 .25rem; }
+.rz-carousel .carousel-caption p { margin: 0; color: #e7e2f0; }
+.rz-carousel .carousel-indicators { position: absolute; bottom: .35rem; margin-bottom: 0; }
+.rz-carousel .carousel-indicators [data-bs-target] { width: 2rem; height: .5rem; border-radius: .5rem; border: 0; opacity: .6; background: #fff; }
+.rz-carousel .carousel-indicators .active { opacity: 1; background: var(--rz-sun); }
+.rz-carousel .carousel-control-prev, .rz-carousel .carousel-control-next { width: 3.75rem; opacity: 1; top: 0; bottom: auto; height: 60%; }
+.rz-carousel .carousel-control-prev-icon, .rz-carousel .carousel-control-next-icon { background-color: var(--rz-ink); background-size: 55%; border-radius: 50%; width: 2.75rem; height: 2.75rem; border: 2px solid #fff; }
+.rz-pause { position: absolute; right: .75rem; bottom: .55rem; z-index: 5; }
+
+/* ---------- 9. Acordeón / pestañas ---------- */
+.accordion { --bs-accordion-border-color: var(--rz-line); --bs-accordion-border-radius: 1rem; --bs-accordion-active-bg: var(--rz-ink); --bs-accordion-active-color: #fff; --bs-accordion-btn-focus-box-shadow: none; }
+.accordion-item { border-radius: 1rem !important; overflow: hidden; margin-bottom: .75rem; border: 1.5px solid var(--rz-line) !important; }
+.accordion-button { font-weight: 700; padding: 1.1rem 1.25rem; min-height: 3.25rem; background: #fff; color: var(--rz-ink); }
+.accordion-button:not(.collapsed) { background: var(--rz-ink); color: #fff; box-shadow: none; }
+.accordion-button:not(.collapsed)::after { filter: invert(1) brightness(2); }
+.accordion-body { background: #fff; color: var(--rz-ink); }
+
+.rz-tabs { gap: .5rem; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: thin; }
+.rz-tabs .nav-link { white-space: nowrap; border: 2px solid var(--rz-ink) !important; color: var(--rz-ink); font-weight: 700; border-radius: 999px; min-height: 2.75rem; background: transparent; }
+.rz-tabs .nav-link:hover { background: var(--rz-paper-2); }
+.rz-tabs .nav-link.active { background: var(--rz-ink); color: #fff; }
+.rz-course { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
+.rz-course li { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; background: #fff; border: 1.5px solid var(--rz-line); border-left: 6px solid var(--rz-clay); border-radius: .85rem; padding: .85rem 1.1rem; }
+.rz-course li span:last-child { font-weight: 700; color: var(--rz-sage); white-space: nowrap; font-size: .9rem; }
+
+/* ---------- 10. Tablas ---------- */
+.rz-table { --bs-table-bg: #fff; --bs-table-striped-bg: var(--rz-paper-2); border-radius: 1rem; overflow: hidden; }
+.rz-table caption { caption-side: top; font-weight: 700; color: var(--rz-ink); padding: 0 0 .75rem; }
+.rz-table thead th { background: var(--rz-ink); color: #fff; font-weight: 700; border: 0; }
+
+/* ---------- 11. Pasos (ol) ---------- */
+.rz-steps { list-style: none; counter-reset: paso; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.rz-steps li { counter-increment: paso; position: relative; background: #fff; border: 1.5px solid var(--rz-line); border-radius: var(--rz-radius); padding: 1.1rem 1.25rem 1.1rem 4.5rem; }
+.rz-steps li::before { content: counter(paso); position: absolute; left: 1rem; top: 1rem; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 50%; background: var(--rz-clay); color: #fff; font-family: var(--rz-font-head); font-weight: 700; font-size: 1.2rem; }
+.rz-steps strong { display: block; }
+.rz-steps span { color: var(--rz-muted); }
+
+/* ---------- 12. Formulario ---------- */
+.rz-form { background: #fff; border: 1.5px solid var(--rz-line); border-radius: var(--rz-radius); padding: 1.5rem; box-shadow: var(--rz-shadow); }
+.form-label { font-weight: 700; margin-bottom: .35rem; }
+.rz-req { color: var(--rz-clay); font-weight: 700; }
+.form-control, .form-select { min-height: 3rem; border: 2px solid #8b8fa0; border-radius: .75rem; padding: .65rem .9rem; font-size: 1rem; background-color: #fff; color: var(--rz-ink); }
+.form-control::placeholder { color: #5f6679; }
+.form-control:hover, .form-select:hover { border-color: var(--rz-ink); }
+.form-control:focus, .form-select:focus { border-color: var(--rz-ink); box-shadow: 0 0 0 .3rem var(--rz-sun) !important; }
+.form-text { color: var(--rz-muted); }
+.form-check-input { width: 1.4rem; height: 1.4rem; border: 2px solid var(--rz-ink); margin-top: .1rem; }
+.form-check-input:checked { background-color: var(--rz-clay); border-color: var(--rz-clay); }
+.form-check-label { padding-left: .25rem; }
+.rz-error { display: none; color: #9b1c1c; font-weight: 600; font-size: .92rem; margin-top: .35rem; }
+.rz-error::before { content: "⚠ "; }
+.is-invalid ~ .rz-error, .is-invalid + .rz-error, .was-invalid .rz-error { display: block; }
+.form-control.is-invalid, .form-select.is-invalid { border-color: #9b1c1c; background-image: none; padding-right: .9rem; }
+.form-control.is-valid, .form-select.is-valid { border-color: var(--rz-sage); background-image: none; padding-right: .9rem; }
+.rz-ok { display: none; color: var(--rz-sage); font-weight: 600; font-size: .92rem; margin-top: .35rem; }
+.is-valid ~ .rz-ok { display: block; }
+.rz-summary { border-left: 6px solid #9b1c1c; background: #fdecec; color: #5c1010; border-radius: .85rem; padding: 1rem 1.25rem; }
+.rz-summary a { color: #5c1010; font-weight: 700; }
+.rz-spin { display: none; width: 1.1rem; height: 1.1rem; border: 3px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: rz-rot .7s linear infinite; }
+.is-loading .rz-spin { display: inline-block; }
+@keyframes rz-rot { to { transform: rotate(360deg); } }
+
+/* ---------- 13. Cabecera interna, migas, pie ---------- */
+.rz-pagehead { background: var(--rz-ink); color: #fff; padding-block: 2.5rem 3rem; position: relative; overflow: hidden; }
+.rz-pagehead::after { content: ""; position: absolute; right: -4rem; top: -4rem; width: 14rem; height: 14rem; border-radius: 50%; border: 2.5rem solid rgba(242,184,75,.9); }
+.rz-pagehead::before { content: ""; position: absolute; right: 3rem; bottom: -3rem; width: 7rem; height: 7rem; border-radius: 50%; background: var(--rz-clay); }
+.rz-pagehead .container { position: relative; z-index: 1; }
+.breadcrumb { --bs-breadcrumb-divider-color: #cfd3e0; --bs-breadcrumb-item-active-color: #fff; font-size: .9rem; }
+.breadcrumb a { color: var(--rz-sun); }
+
+.rz-footer { background: var(--rz-ink); color: #e7e2f0; padding-block: 3rem 1.5rem; }
+.rz-footer a { color: #fff; }
+.rz-footer a:hover { color: var(--rz-sun); }
+.rz-footer h2 { font-size: 1.05rem; color: var(--rz-sun); font-family: var(--rz-font-body); text-transform: uppercase; letter-spacing: .1em; }
+.rz-footer ul { list-style: none; padding: 0; }
+.rz-footer li { margin-bottom: .4rem; }
+.rz-footer hr { border-color: rgba(255,255,255,.25); opacity: 1; }
+
+.rz-quote { font-family: var(--rz-font-head); font-style: italic; font-size: 1.35rem; border-left: 6px solid var(--rz-sun); padding-left: 1.25rem; }
+.rz-badge { display: inline-block; background: var(--rz-paper-2); border: 1.5px solid var(--rz-line); border-radius: 999px; padding: .4rem 1rem; font-weight: 600; margin: 0 .4rem .6rem 0; }
+.rz-cta { background: var(--rz-clay); color: #fff; border-radius: 2rem; padding: 2rem 1.5rem; position: relative; overflow: hidden; }
+.rz-cta::after { content: ""; position: absolute; right: -3rem; bottom: -3rem; width: 11rem; height: 11rem; border-radius: 50%; border: 1.6rem solid rgba(242,184,75,.85); }
+.rz-cta > * { position: relative; z-index: 1; }
+.rz-cta .btn-clay { --bs-btn-bg: #fff; --bs-btn-color: var(--rz-clay-dark); --bs-btn-border-color: #fff; --bs-btn-hover-bg: var(--rz-sun); --bs-btn-hover-color: var(--rz-ink); --bs-btn-hover-border-color: var(--rz-sun); }
+
+/* Aparición suave al hacer scroll (se activa con JS; sin JS todo se ve) */
+.js .rz-reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.js .rz-reveal.is-in { opacity: 1; transform: none; }
+
+/* ---------- 14. Tablet (≥ 768 px) ---------- */
+@media (min-width: 768px) {
+  body { font-size: 1.125rem; }
+  .rz-section { padding-block: 5rem; }
+  .rz-stats dl { grid-template-columns: repeat(4, 1fr); }
+  .rz-stats dt { font-size: 2.6rem; }
+  .rz-carousel .carousel-caption { padding: 1.5rem 2rem 3.5rem; }
+  .rz-carousel .carousel-caption h3 { font-size: 1.5rem; }
+  .rz-form { padding: 2.25rem; }
+  .rz-cta { padding: 3rem; }
+}
+
+/* ---------- 15. Escritorio (≥ 992 px) ---------- */
+@media (min-width: 992px) {
+  .rz-hero { padding-block: 5rem 0; }
+  .rz-hero__art { max-width: 34rem; margin-bottom: -1px; }
+  .rz-carousel img { aspect-ratio: 16 / 7; }
+  .rz-carousel .carousel-control-prev, .rz-carousel .carousel-control-next { height: 100%; }
+  .rz-pagehead { padding-block: 4rem 4.5rem; }
+  .rz-sticky { position: sticky; top: 7rem; }
+}
+
+/* ---------- 16. Preferencias del usuario ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .rz-reveal { opacity: 1; transform: none; }
+}
+@media print { .rz-toolbar, .rz-nav, .rz-skip { display: none; } }

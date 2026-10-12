@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio · Facultad de Ciencias Sociales – Programa Raíces</title>
+  <meta name="description" content="Conoce la Licenciatura en Innovación Social y Ciudadanía Digital: un programa nuevo para comprender la sociedad y transformarla con datos y empatía.">
+  <meta name="theme-color" content="#1b2540">
+  <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+  <link rel="preload" href="assets/fonts/Lora-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <!-- Bootstrap 5.3 (copia local en /vendor para funcionar sin internet).
+       Alternativa CDN oficial:
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="rz-skip" href="#contenido">Saltar al contenido principal</a>
+  <div id="anuncio-a11y" class="visually-hidden" role="status" aria-live="polite"></div>
+
+  <!-- Barra de accesibilidad -->
+  <div class="rz-toolbar" role="region" aria-label="Herramientas de accesibilidad">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between gap-2 py-2">
+      <span class="d-none d-sm-inline fw-semibold">Facultad de Ciencias Sociales · Admisión 2027-I abierta</span>
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-sm-auto">
+        <span id="lbl-letra" class="me-1">Tamaño de letra</span>
+        <div class="btn-group" role="group" aria-labelledby="lbl-letra">
+          <button type="button" id="fuente-menos" class="btn btn-outline-light" aria-label="Disminuir tamaño de letra">A−</button>
+          <button type="button" id="fuente-mas" class="btn btn-outline-light" aria-label="Aumentar tamaño de letra">A+</button>
+        </div>
+        <button type="button" id="alto-contraste" class="btn btn-outline-light" aria-pressed="false">Alto contraste</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg rz-nav" aria-label="Navegación principal">
+      <div class="container">
+        <a class="rz-brand" href="index.html" aria-label="Facultad de Ciencias Sociales, ir al inicio">
+          <img src="assets/img/logo.svg" alt="" width="44" height="44">
+          <span><strong>Ciencias Sociales</strong><small>PROGRAMA RAÍCES</small></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir o cerrar el menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 pt-3 pt-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html" aria-current="page">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="programa.html">El programa</a></li>
+            <li class="nav-item"><a class="nav-link" href="admision.html">Admisión</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-clay" href="admision.html#formulario">Postula ahora</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <section class="rz-hero" aria-labelledby="t-hero">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7 pb-lg-5">
+            <p class="rz-eyebrow mb-3">Nuevo programa académico · 2027</p>
+            <h1 id="t-hero">Entiende la sociedad. <em>Transfórmala.</em></h1>
+            <p class="rz-lead mt-3 mb-4">Licenciatura en Innovación Social y Ciudadanía Digital: cuatro años para aprender a leer los problemas de tu comunidad, analizarlos con datos y diseñar soluciones que sí funcionan.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+              <a class="btn btn-sun btn-lg" href="admision.html#formulario">Postula a Admisión 2027-I</a>
+              <a class="btn btn-line btn-lg" href="programa.html">Explora el plan de estudios</a>
+            </div>
+            <ul class="list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="Datos clave del programa">
+              <li class="rz-chip">8 ciclos</li><li class="rz-chip">Presencial y semipresencial</li><li class="rz-chip">Prácticas desde el 6.º ciclo</li>
+            </ul>
+          </div>
+          <div class="col-lg-5">
+            <img class="rz-hero__art" src="assets/img/hero.svg" alt="Ilustración de un sol naciente sobre colinas verdes con cinco personas de pie, juntas, que simbolizan la comunidad" width="600" height="600">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rz-stats" aria-label="La facultad en cifras">
+      <div class="container">
+        <dl>
+          <div class="item"><dt>4 años</dt><dd>de formación profesional</dd></div>
+          <div class="item"><dt>60</dt><dd>vacantes por ingreso</dd></div>
+          <div class="item"><dt>15:1</dt><dd>estudiantes por docente</dd></div>
+          <div class="item"><dt>100 %</dt><dd>con prácticas en organizaciones</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="rz-section" aria-labelledby="t-ejes">
+      <div class="container">
+        <div class="mb-5 rz-reveal">
+          <p class="rz-eyebrow">Qué aprenderás</p>
+          <h2 id="t-ejes" class="mb-3">Cuatro ejes para formarte como agente de cambio</h2>
+          <p class="rz-lead mb-0">Cada ciclo combina teoría, práctica y proyecto real. Así sales con criterio, herramientas y portafolio.</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4"><div class="col"><article class="rz-card rz-reveal"><span class="rz-num" aria-hidden="true">01</span><div class="rz-icon"><svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></svg></div><h3>Pensamiento crítico</h3><p>Analizas problemas sociales reales con teorías, debate y trabajo en equipo.</p></article></div><div class="col"><article class="rz-card rz-reveal"><span class="rz-num" aria-hidden="true">02</span><div class="rz-icon"><svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg></div><h3>Datos con sentido</h3><p>Aprendes a recolectar, visualizar e interpretar datos para decidir mejor.</p></article></div><div class="col"><article class="rz-card rz-reveal"><span class="rz-num" aria-hidden="true">03</span><div class="rz-icon"><svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4H8.5V1.077c.67.204 1.335.82 1.887 1.855q.26.487.468 1.068"/></svg></div><h3>Ciudadanía digital</h3><p>Participación, derechos y ética en entornos digitales y redes comunitarias.</p></article></div><div class="col"><article class="rz-card rz-reveal"><span class="rz-num" aria-hidden="true">04</span><div class="rz-icon"><svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/></svg></div><h3>Innovación social</h3><p>Diseñas proyectos con impacto medible junto a organizaciones y comunidades.</p></article></div></div>
+      </div>
+    </section>
+
+    <section class="rz-section rz-paper-2" aria-labelledby="t-vida">
+      <div class="container">
+        <div class="row g-4 align-items-end mb-4">
+          <div class="col-lg-8 rz-reveal">
+            <p class="rz-eyebrow">Experiencia</p>
+            <h2 id="t-vida" class="mb-0">Así se vive el programa</h2>
+          </div>
+        </div>
+        <div id="carruselVida" class="carousel slide rz-carousel position-relative rz-reveal" data-bs-ride="carousel" data-bs-interval="6000" role="group" aria-roledescription="carrusel" aria-label="Galería de la vida en el programa">
+          <div class="carousel-indicators"><button type="button" data-bs-target="#carruselVida" data-bs-slide-to="0" aria-label="Ir a la diapositiva 1" class="active" aria-current="true"></button><button type="button" data-bs-target="#carruselVida" data-bs-slide-to="1" aria-label="Ir a la diapositiva 2"></button><button type="button" data-bs-target="#carruselVida" data-bs-slide-to="2" aria-label="Ir a la diapositiva 3"></button><button type="button" data-bs-target="#carruselVida" data-bs-slide-to="3" aria-label="Ir a la diapositiva 4"></button></div>
+          <div class="carousel-inner"><div class="carousel-item active"><img src="assets/img/slide-aula.svg" class="d-block" alt="Ilustración de círculos superpuestos sobre una mesa con cinco estudiantes trabajando en equipo" width="1200" height="675"><div class="carousel-caption"><h3>Aulas que conversan</h3><p>Seminarios en círculo, debates guiados y proyectos en equipo desde el primer ciclo.</p></div></div><div class="carousel-item"><img src="assets/img/slide-campo.svg" class="d-block" alt="Ilustración de colinas verdes con un sendero que lleva a dos personas bajo un sol amarillo" width="1200" height="675" loading="lazy"><div class="carousel-caption"><h3>Trabajo de campo</h3><p>Salidas a comunidades reales para escuchar, observar y construir soluciones con ellas.</p></div></div><div class="carousel-item"><img src="assets/img/slide-datos.svg" class="d-block" alt="Ilustración de barras redondeadas y una línea de tendencia ascendente que representan análisis de datos" width="1200" height="675" loading="lazy"><div class="carousel-caption"><h3>Laboratorio de datos</h3><p>Convierte encuestas y entrevistas en gráficos claros que cuentan una historia.</p></div></div><div class="carousel-item"><img src="assets/img/slide-comunidad.svg" class="d-block" alt="Ilustración de una multitud diversa de personas frente a un sol que representa el trabajo con la comunidad" width="1200" height="675" loading="lazy"><div class="carousel-caption"><h3>Red de comunidad</h3><p>Voluntariado y prácticas con municipios, ONG y colectivos ciudadanos.</p></div></div></div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carruselVida" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Diapositiva anterior</span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carruselVida" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Diapositiva siguiente</span></button>
+          <button type="button" id="carrusel-pausa" class="btn btn-sun btn-sm rz-pause" aria-pressed="false" aria-label="Pausar carrusel automático"><span class="txt">Pausar</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="rz-section" aria-labelledby="t-perfil">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6 rz-reveal">
+            <p class="rz-eyebrow">Tu futuro</p>
+            <h2 id="t-perfil" class="mb-3">Un perfil que las organizaciones buscan</h2>
+            <p class="rz-lead">Egresarás preparado para trabajar en el Estado, ONG, empresas con propósito y organismos internacionales.</p>
+            <p><span class="rz-badge">Gestión de proyectos sociales</span><span class="rz-badge">Analista de políticas públicas</span><span class="rz-badge">Investigación social</span><span class="rz-badge">Participación ciudadana</span><span class="rz-badge">Responsabilidad social</span></p>
+            <a class="btn btn-line" href="programa.html#perfil">Ver perfil del egresado</a>
+          </div>
+          <div class="col-lg-6 rz-reveal">
+            <blockquote class="rz-quote mb-0">“Una sociedad mejor no se improvisa: se estudia, se conversa y se construye con otros.”
+              <footer class="fs-6 mt-3 fst-normal fw-semibold" style="font-family:var(--rz-font-body)">— Lema del programa</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rz-section pt-0" aria-labelledby="t-faq">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4 rz-reveal">
+            <p class="rz-eyebrow">Dudas frecuentes</p>
+            <h2 id="t-faq" class="mb-3">Antes de postular</h2>
+            <p class="rz-lead">¿No encuentras tu respuesta? Escríbenos desde la página de admisión.</p>
+          </div>
+          <div class="col-lg-8 rz-reveal"><div class="accordion" id="faqs"><div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq0" aria-expanded="true" aria-controls="faq0">¿Cuánto dura la carrera?</button></h3><div id="faq0" class="accordion-collapse collapse show" data-bs-parent="#faqs"><div class="accordion-body">Son 4 años divididos en 8 ciclos. Desde el sexto ciclo realizas prácticas preprofesionales.</div></div></div><div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">¿Necesito saber programar?</button></h3><div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqs"><div class="accordion-body">No. Aprenderás herramientas de análisis y visualización de datos desde cero, con ejemplos aplicados a lo social.</div></div></div><div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">¿Hay modalidad semipresencial?</button></h3><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqs"><div class="accordion-body">Sí. Ofrecemos horario diurno presencial y una modalidad semipresencial para quienes trabajan.</div></div></div><div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">¿Qué becas existen?</button></h3><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqs"><div class="accordion-body">Becas por rendimiento, por vocación social y por situación económica. Los requisitos se detallan en la página de admisión.</div></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-5" aria-labelledby="t-cta">
+      <div class="container">
+        <div class="rz-cta rz-reveal">
+          <div class="row align-items-center g-3">
+            <div class="col-lg-8"><h2 id="t-cta" class="mb-2">Las inscripciones cierran el 28 de febrero</h2><p class="mb-0 fs-5">Completa tu solicitud en menos de 3 minutos.</p></div>
+            <div class="col-lg-4 text-lg-end"><a class="btn btn-clay btn-lg" href="admision.html#formulario">Quiero postular</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rz-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <p class="rz-display h4 mb-2 text-white">Facultad de Ciencias Sociales</p>
+          <p class="mb-0">Formamos personas que entienden la sociedad y la transforman con datos, empatía y compromiso ciudadano.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2>Navegar</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="programa.html">El programa</a></li>
+            <li><a href="admision.html">Admisión</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h2>Contacto</h2>
+          <address class="mb-0">
+            <p class="mb-1">Av. Universitaria 1250, Pabellón C<br>Lima, Perú</p>
+            <p class="mb-1"><a href="mailto:admision.sociales@ejemplo.edu.pe">admision.sociales@ejemplo.edu.pe</a></p>
+            <p class="mb-0"><a href="tel:+51987654321">+51 987 654 321</a></p>
+          </address>
+        </div>
+      </div>
+      <hr class="my-4">
+      <p class="small mb-0">© <span id="anio">2026</span> Facultad de Ciencias Sociales · Sitio informativo con fines académicos (examen final de Diseño Web).</p>
+    </div>
+  </footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
